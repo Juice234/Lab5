@@ -8,23 +8,23 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-
+//Message to main page
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-
+//Message to specific url
 app.get('/datarep',(req,res)=>{
     res.send('Welcome to Data');
 })
 app.get('/hello',(req,res)=>{
     res.send('Hello');
 })
-
+//Message with input
 app.get('/hello/name',(req,res)=>{
     console.log(req.params.name)
     res.send('Hello ' +req.params.name );
 })
-
+//Display items from array
 app.get('/api/books',(req,res)=>{
     const books=  [
         {
@@ -73,7 +73,7 @@ app.get('/api/books',(req,res)=>{
 app.get('/test',(req,res)=>{
     res.sendFile(__dirname+'/index.html')
 })
-
+//Field entry + redirection after entering in field
 app.get('/name',(req,res)=>{
     console.log(req.query.fname);
     res.send('Hello ' +req.query.fname + ' ' + req.query.lname )
